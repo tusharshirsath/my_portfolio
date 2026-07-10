@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tushar Shirsath | DevOps Engineer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+
+html{
+scroll-behavior:smooth;
+}
+
+
+body{
+
+background:#020617;
+color:white;
+
+}
+
+
+/* HEADER */
+
+header{
+
+position:sticky;
+top:0;
+
+z-index:100;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:20px 8%;
+
+background:#020617;
+
+}
+
+
+header h2{
+
+color:#38bdf8;
+
+}
+
+
+nav a{
+
+color:white;
+text-decoration:none;
+
+margin-left:20px;
+
+font-size:15px;
+
+}
+
+
+
+/* HERO */
+
+
+.hero{
+
+min-height:90vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:40px;
+
+background:
+
+linear-gradient(
+135deg,
+#020617,
+#0f172a,
+#1d4ed8
+);
+
+}
+
+
+.hero h1{
+
+font-size:55px;
+
+}
+
+
+.hero span{
+
+color:#38bdf8;
+
+}
+
+
+.hero h3{
+
+margin-top:20px;
+
+font-size:28px;
+
+}
+
+
+.hero p{
+
+margin-top:20px;
+
+font-size:18px;
+
+color:#cbd5e1;
+
+}
+
+
+
+.btn{
+
+display:inline-block;
+
+margin-top:30px;
+
+padding:12px 35px;
+
+background:#2563eb;
+
+border-radius:30px;
+
+color:white;
+
+text-decoration:none;
+
+}
+
+
+
+/* SECTIONS */
+
+
+section{
+
+padding:70px 8%;
+
+}
+
+
+
+h2{
+
+font-size:35px;
+
+margin-bottom:30px;
+
+color:#38bdf8;
+
+}
+
+
+
+/* CARDS */
+
+
+.cards{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:25px;
+
+}
+
+
+
+.card{
+
+background:#111827;
+
+padding:25px;
+
+border-radius:15px;
+
+border:1px solid #1e293b;
+
+transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+transform:translateY(-8px);
+
+border-color:#38bdf8;
+
+}
+
+
+
+/* SKILLS */
+
+
+.skill{
+
+display:inline-block;
+
+background:#1e40af;
+
+padding:10px 20px;
+
+border-radius:20px;
+
+margin:8px;
+
+}
+
+
+
+/* EXPERIENCE */
+
+
+.timeline{
+
+border-left:3px solid #38bdf8;
+
+padding-left:25px;
+
+}
+
+
+
+/* FLOATING ICONS */
+
+
+.icons img{
+
+width:70px;
+
+position:absolute;
+
+opacity:.15;
+
+animation:move 8s infinite;
+
+}
+
+
+.icons img:nth-child(1){
+
+top:20%;
+left:5%;
+
+}
+
+
+.icons img:nth-child(2){
+
+top:35%;
+right:5%;
+
+}
+
+
+.icons img:nth-child(3){
+
+bottom:20%;
+left:10%;
+
+}
+
+
+
+@keyframes move{
+
+50%{
+
+transform:translateY(-40px);
+
+}
+
+}
+
+
+
+/* FOOTER */
+
+
+footer{
+
+text-align:center;
+
+padding:30px;
+
+background:#020617;
+
+color:#94a3b8;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="icons">
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg">
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg">
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg">
+
+</div>
+
+
+
+<header>
+
+<h2>
+DevOps Portfolio
+</h2>
+
+
+<nav>
+
+<a href="#about">
+About
+</a>
+
+<a href="#skills">
+Skills
+</a>
+
+<a href="#experience">
+Experience
+</a>
+
+<a href="#projects">
+Projects
+</a>
+
+<a href="#contact">
+Contact
+</a>
+
+
+</nav>
+
+</header>
+
+
+
+
+
+<section class="hero">
+
+
+<div>
+
+
+<h1>
+
+Hello, I'm
+
+<span>
+Tushar Shirsath
+</span>
+
+</h1>
+
+
+<h3>
+CKA Certified DevOps Engineer
+</h3>
+
+
+<p>
+
+AWS | Kubernetes | Terraform | Docker | CI/CD
+
+</p>
+
+
+<p>
+
+4+ Years Experience | Cloud Native | Amazon EKS | Microservices
+
+</p>
+
+
+
+<a class="btn" href="resume.pdf">
+
+Download Resume
+
+</a>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section id="about">
+
+
+<h2>
+Professional Summary
+</h2>
+
+
+<p>
+
+CKA Certified DevOps Engineer with 4+ years of experience
+in Kubernetes, Amazon EKS, AWS Cloud, Terraform,
+Docker, CI/CD automation and cloud-native application support.
+
+Currently working with Vodafone Intelligent Solutions (VOIS)
+supporting enterprise telecom platforms and microservices.
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+<section id="skills">
+
+
+<h2>
+Technical Skills
+</h2>
+
+
+<div>
+
+
+<span class="skill">
+AWS
+</span>
+
+<span class="skill">
+Kubernetes
+</span>
+
+<span class="skill">
+Docker
+</span>
+
+<span class="skill">
+Terraform
+</span>
+
+
+<span class="skill">
+Helm
+</span>
+
+
+<span class="skill">
+ArgoCD
+</span>
+
+
+<span class="skill">
+Jenkins
+</span>
+
+
+<span class="skill">
+GitHub Actions
+</span>
+
+
+<span class="skill">
+Prometheus
+</span>
+
+
+<span class="skill">
+Grafana
+</span>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section id="experience">
+
+
+<h2>
+Professional Experience
+</h2>
+
+
+
+<div class="timeline">
+
+
+<h3>
+Assistant Manager | DevOps Engineer
+</h3>
+
+
+<h4>
+Vodafone Intelligent Solutions (VOIS)
+</h4>
+
+
+<br>
+
+
+<p>
+
+• Managed Amazon EKS Kubernetes environments.
+
+</p>
+
+
+<p>
+
+• Supported 200+ microservices running on cloud-native platforms.
+
+</p>
+
+
+<p>
+
+• Automated deployments using CI/CD pipelines.
+
+</p>
+
+
+<p>
+
+• Worked with Terraform, Helm, Docker and GitOps practices.
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section id="projects">
+
+
+<h2>
+Projects
+</h2>
+
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>
+Amazon EKS Platform
+</h3>
+
+
+<p>
+
+Enterprise Kubernetes platform hosting
+microservices applications.
+
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+CI/CD Automation
+</h3>
+
+
+<p>
+
+Automated build and deployment pipelines
+using Jenkins and GitHub Actions.
+
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>
+Terraform AWS Automation
+</h3>
+
+
+<p>
+
+Infrastructure provisioning using Terraform.
+
+</p>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section>
+
+
+<h2>
+Certifications & Achievements
+</h2>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+🏆 Certified Kubernetes Administrator (CKA)
+
+</div>
+
+
+<div class="card">
+
+🏆 SAFe Practitioner
+
+</div>
+
+
+<div class="card">
+
+⭐ Hero of the Week - VOIS
+
+</div>
+
+
+<div class="card">
+
+⭐ Star Performer Award
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section id="contact">
+
+
+<h2>
+Contact
+</h2>
+
+
+<p>
+
+LinkedIn:
+linkedin.com/in/tushar-shirsath-devops-engineer
+
+</p>
+
+
+<p>
+
+GitHub:
+github.com/tusharshirsath
+
+</p>
+
+
+<p>
+
+Email:
+your-email@example.com
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+<footer>
+
+© 2026 Tushar Shirsath | DevOps Engineer
+
+</footer>
+
+
+
+</body>
+
+</html>
