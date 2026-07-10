@@ -1,14 +1,486 @@
-<section class="hero">
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="profile">
+<head>
 
-<img src="images/tushar-profile.png" 
-alt="Tushar Shirsath DevOps Engineer">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tushar Shirsath | DevOps Engineer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+
+body{
+
+color:white;
+
+background:
+linear-gradient(-45deg,
+#020617,
+#0f172a,
+#1e3a8a,
+#111827);
+
+background-size:400% 400%;
+
+animation:bg 12s infinite;
+
+overflow-x:hidden;
+
+}
+
+
+@keyframes bg{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+
+/* Header */
+
+header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:20px 8%;
+
+background:#020617;
+
+position:sticky;
+
+top:0;
+
+z-index:10;
+
+}
+
+
+header h2{
+
+color:#38bdf8;
+
+}
+
+
+nav a{
+
+color:white;
+
+text-decoration:none;
+
+margin-left:20px;
+
+}
+
+
+
+/* Hero */
+
+
+.hero{
+
+height:90vh;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+}
+
+
+.hero h1{
+
+font-size:55px;
+
+}
+
+
+.hero span{
+
+color:#38bdf8;
+
+}
+
+
+
+.typing{
+
+margin-top:20px;
+
+font-size:30px;
+
+height:45px;
+
+overflow:hidden;
+
+}
+
+
+.typing div{
+
+animation:words 10s infinite;
+
+}
+
+
+@keyframes words{
+
+
+0%{
+transform:translateY(0);
+}
+
+
+25%{
+transform:translateY(-45px);
+}
+
+
+50%{
+transform:translateY(-90px);
+}
+
+
+75%{
+transform:translateY(-135px);
+}
+
+
+100%{
+transform:translateY(0);
+}
+
+
+}
+
+
+
+.button{
+
+margin-top:30px;
+
+padding:12px 35px;
+
+background:#2563eb;
+
+border-radius:30px;
+
+text-decoration:none;
+
+color:white;
+
+}
+
+
+
+/* Floating Icons */
+
+
+.tech img{
+
+width:70px;
+
+position:absolute;
+
+opacity:.25;
+
+animation:float 8s infinite;
+
+}
+
+
+.tech img:nth-child(1){
+
+left:5%;
+top:20%;
+
+}
+
+
+.tech img:nth-child(2){
+
+right:8%;
+top:25%;
+
+animation-delay:2s;
+
+}
+
+
+.tech img:nth-child(3){
+
+left:15%;
+bottom:15%;
+
+animation-delay:3s;
+
+}
+
+
+.tech img:nth-child(4){
+
+right:15%;
+bottom:20%;
+
+animation-delay:4s;
+
+}
+
+
+.tech img:nth-child(5){
+
+left:45%;
+top:15%;
+
+animation-delay:5s;
+
+}
+
+
+
+@keyframes float{
+
+50%{
+
+transform:translateY(-40px) rotate(15deg);
+
+}
+
+}
+
+
+
+/* Sections */
+
+
+section{
+
+padding:70px 8%;
+
+}
+
+
+
+.cards{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:20px;
+
+margin-top:30px;
+
+}
+
+
+
+.card{
+
+background:
+
+rgba(255,255,255,.1);
+
+padding:25px;
+
+border-radius:15px;
+
+backdrop-filter:blur(10px);
+
+transition:.3s;
+
+}
+
+
+.card:hover{
+
+transform:translateY(-10px);
+
+background:#2563eb;
+
+}
+
+
+
+/* Google Search */
+
+
+.search{
+
+text-align:center;
+
+}
+
+
+.search-box{
+
+margin:30px auto;
+
+width:70%;
+
+background:#202124;
+
+border:1px solid #555;
+
+padding:15px;
+
+border-radius:40px;
+
+}
+
+
+.search-box input{
+
+width:100%;
+
+background:none;
+
+border:none;
+
+outline:none;
+
+color:white;
+
+font-size:18px;
+
+}
+
+
+
+.google{
+
+font-size:65px;
+
+font-weight:bold;
+
+}
+
+
+
+.g1{
+color:#4285F4;
+}
+
+.g2{
+color:#EA4335;
+}
+
+.g3{
+color:#FBBC05;
+}
+
+.g4{
+color:#34A853;
+}
+
+
+
+
+footer{
+
+padding:30px;
+
+text-align:center;
+
+background:#020617;
+
+}
+
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="tech">
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg">
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg">
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg">
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg">
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg">
+
+
+</div>
+
+
+
+
+<header>
+
+<h2>DevOps Portfolio</h2>
+
+
+<nav>
+
+<a href="#about">About</a>
+
+<a href="#skills">Skills</a>
+
+<a href="#projects">Projects</a>
+
+<a href="#search">Search</a>
+
+</nav>
+
+
+</header>
+
+
+
+
+
+<div class="hero">
 
 
 <h1>
 
-Hello, I'm
+Hello I'm
 
 <span>
 Tushar Shirsath
@@ -17,54 +489,201 @@ Tushar Shirsath
 </h1>
 
 
-<h3>
-CKA Certified DevOps Engineer
-</h3>
+<div class="typing">
+
+<div>
+
+<p>CKA Certified DevOps Engineer</p>
+
+<p>AWS Cloud Engineer</p>
+
+<p>Kubernetes Specialist</p>
+
+<p>Terraform Automation Engineer</p>
 
 
-<marquee behavior="alternate" scrollamount="6">
+</div>
 
-AWS ☁ Kubernetes ☸ Docker 🐳 Terraform ⚙ GitHub Actions 🚀 CI/CD 🔥 Cloud Native Applications
+</div>
 
-</marquee>
+
+
+<a class="button">
+
+Download Resume
+
+</a>
+
+
+</div>
+
+
+
+
+
+<section id="about">
+
+
+<h2>About Me</h2>
+
+<br>
 
 
 <p>
 
-4+ Years Experience | Amazon EKS | Microservices | DevOps Automation
+DevOps Engineer with 4 years of experience in AWS,
+Kubernetes, Docker, Terraform, CI/CD automation,
+GitHub Actions and cloud-native applications.
+
+Working on enterprise telecom platforms with
+Amazon EKS and microservices.
 
 </p>
 
 
-<div class="buttons">
+</section>
 
 
-<a class="btn" href="resume.pdf">
-Download Resume
-</a>
 
 
-<a class="btn linkedin"
-href="https://www.linkedin.com/in/tushar-shirsath-devops-engineer"
-target="_blank">
 
-LinkedIn Profile
-
-</a>
+<section id="skills">
 
 
-<a class="btn github"
-href="https://github.com/tusharshirsath"
-target="_blank">
+<h2>Technical Skills</h2>
 
-GitHub Profile
 
-</a>
+<div class="cards">
+
+
+<div class="card">AWS</div>
+
+<div class="card">Kubernetes</div>
+
+<div class="card">Docker</div>
+
+<div class="card">Terraform</div>
+
+<div class="card">Jenkins</div>
+
+<div class="card">GitHub Actions</div>
+
+<div class="card">Linux</div>
+
+<div class="card">Helm</div>
 
 
 </div>
 
-
-</div>
 
 </section>
+
+
+
+
+
+<section id="projects">
+
+
+<h2>Projects</h2>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>Amazon EKS Platform</h3>
+
+<p>
+
+Managed Kubernetes clusters hosting
+cloud-native applications.
+
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>CI/CD Automation</h3>
+
+<p>
+
+Built deployment pipelines using Jenkins
+and GitHub Actions.
+
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>Terraform AWS</h3>
+
+<p>
+
+Automated AWS infrastructure provisioning.
+
+</p>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section id="search" class="search">
+
+
+<div class="google">
+
+<span class="g1">G</span>
+<span class="g2">o</span>
+<span class="g3">o</span>
+<span class="g1">g</span>
+<span class="g4">l</span>
+<span class="g2">e</span>
+
+
+</div>
+
+
+<div class="search-box">
+
+<input placeholder="Search Google...">
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<footer>
+
+© 2026 Tushar Shirsath | DevOps Engineer
+
+</footer>
+
+
+
+</body>
+
+</html>
