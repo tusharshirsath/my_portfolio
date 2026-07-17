@@ -38,6 +38,15 @@
     .card-links a{color:#38bdf8;text-decoration:none;font-size:13px;font-weight:600;}
     .card-links a:hover{text-decoration:underline;}
     .card:hover .card-links a{color:white;}
+    .exp-item{background:rgba(255,255,255,.1);padding:30px;border-radius:15px;backdrop-filter:blur(10px);margin-top:30px;}
+    .exp-header{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:6px;}
+    .exp-role{font-size:18px;font-weight:600;color:#38bdf8;}
+    .exp-meta{font-size:13px;color:rgba(255,255,255,.7);}
+    .exp-company{font-size:14px;color:rgba(255,255,255,.85);margin-bottom:16px;}
+    .exp-company a{color:#38bdf8;text-decoration:none;}
+    .exp-company a:hover{text-decoration:underline;}
+    .exp-item ul{margin-left:18px;}
+    .exp-item li{font-size:14px;line-height:1.6;color:rgba(255,255,255,.85);margin-bottom:8px;}
     footer{padding:30px;text-align:center;background:#020617;}
     footer a{color:#38bdf8;text-decoration:none;margin:0 8px;}
     #contact p{margin-bottom:10px;}
@@ -51,6 +60,7 @@
   <h2>Tushar Shirsath | DevOps Portfolio</h2>
   <nav>
     <a href="#about">About</a>
+    <a href="#experience">Experience</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#awards">Awards</a>
@@ -90,6 +100,52 @@
     At Vodafone Intelligent Solutions (_VOIS), I manage 200+ production microservices on Kubernetes, focusing on deployment reliability, infrastructure cost optimization, and reducing manual toil through automation.
     Recognized with the Vodafone Star Award for ownership and performance impact.
   </p>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+
+  <div class="exp-item">
+    <div class="exp-header">
+      <span class="exp-role">Assistant Manager – DevOps Engineer</span>
+      <span class="exp-meta">Mar 2024 – Present &middot; 2 yrs 5 mos</span>
+    </div>
+    <div class="exp-company">
+      <a href="https://www.linkedin.com/company/167822/" target="_blank" rel="noopener">_VOIS</a>
+      &middot; Full-time &middot; 3 yrs 8 mos &middot; Pune District, Maharashtra, India &middot; Hybrid
+    </div>
+    <ul>
+      <li>Lead design and management of Kubernetes (EKS) infrastructure supporting 200+ production microservices, ensuring high availability and scalability.</li>
+      <li>Architect and maintain CI/CD pipelines (GitHub Actions, Jenkins, Harness), reducing deployment time by 40% and enabling faster, more reliable releases.</li>
+      <li>Implement GitOps workflows with ArgoCD to automate application delivery and enforce consistency across environments.</li>
+      <li>Manage infrastructure as code using Terraform, provisioning and scaling AWS resources (EC2, VPC, S3, ELB) to support evolving business needs.</li>
+      <li>Containerize and orchestrate applications with Docker and Helm, standardizing deployment patterns across teams.</li>
+      <li>Set up monitoring and alerting with Grafana, improving observability and reducing mean time to detect (MTTD) for production issues.</li>
+      <li>Migrated legacy workloads to AWS cloud, improving scalability and resilience.</li>
+      <li>Enhanced CI/CD automation, reducing manual interventions by 60%.</li>
+      <li>Mentor junior engineers on Kubernetes best practices and DevOps workflows; conduct peer reviews to maintain coding and infrastructure standards.</li>
+      <li>Recognized with the Vodafone Star Award for contributions to automation and operational excellence.</li>
+    </ul>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-header">
+      <span class="exp-role">Senior Executive – DevOps Engineer</span>
+      <span class="exp-meta">Dec 2022 – Mar 2024 &middot; 1 yr 4 mos</span>
+    </div>
+    <div class="exp-company">
+      <a href="https://www.linkedin.com/company/167822/" target="_blank" rel="noopener">_VOIS</a>
+      &middot; Full-time &middot; Pune District, Maharashtra, India &middot; Hybrid
+    </div>
+    <ul>
+      <li>Built and maintained CI/CD pipelines for 100+ applications using Jenkins and GitHub Actions, streamlining build and release processes.</li>
+      <li>Deployed and managed containerized workloads on Kubernetes, supporting day-to-day cluster administration and troubleshooting.</li>
+      <li>Automated infrastructure provisioning with Terraform, reducing manual setup time and improving environment consistency.</li>
+      <li>Collaborated with cross-functional teams to translate business requirements into scalable, automated infrastructure solutions.</li>
+      <li>Administered Linux-based systems supporting production and staging environments, ensuring uptime and performance.</li>
+      <li>Contributed to early adoption of GitOps practices, laying the groundwork for ArgoCD-based deployment workflows.</li>
+    </ul>
+  </div>
 </section>
 
 <section id="skills">
