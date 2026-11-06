@@ -6,278 +6,882 @@
   <title>Tushar Shirsath | DevOps Engineer</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;}
-    body{color:white;background:linear-gradient(-45deg,#020617,#0f172a,#1e3a8a,#111827);
-         background-size:400% 400%;animation:bg 12s infinite;overflow-x:hidden;}
-    @keyframes bg{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
-    header{display:flex;justify-content:space-between;align-items:center;padding:20px 8%;background:#020617;position:sticky;top:0;z-index:10;}
-    header h2{color:#38bdf8;}
-    nav a{color:white;text-decoration:none;margin-left:20px;font-size:14px;}
-    nav a:hover{color:#38bdf8;}
-    .hero{height:90vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
-    .hero h1{font-size:55px;}
-    .hero span{color:#38bdf8;}
-    .typing{margin-top:20px;font-size:30px;height:45px;overflow:hidden;}
-    .typing div{animation:words 10s infinite;}
-    @keyframes words{0%{transform:translateY(0);}25%{transform:translateY(-45px);}50%{transform:translateY(-90px);}75%{transform:translateY(-135px);}100%{transform:translateY(0);}}
-    .hero-buttons{display:flex;gap:16px;margin-top:30px;}
-    .button{padding:12px 35px;background:#2563eb;border-radius:30px;text-decoration:none;color:white;transition:.3s;}
-    .button.outline{background:transparent;border:1px solid #38bdf8;color:#38bdf8;}
-    .button:hover{opacity:.85;}
-    .social-links{display:flex;gap:18px;margin-top:26px;}
-    .social-links a{color:white;text-decoration:none;font-size:14px;padding:8px 16px;border:1px solid rgba(255,255,255,.25);border-radius:20px;transition:.3s;}
-    .social-links a:hover{background:#38bdf8;border-color:#38bdf8;color:#020617;}
-    section{padding:70px 8%;}
-    section h2{margin-bottom:10px;}
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:30px;}
-    .card{background:rgba(255,255,255,.1);padding:25px;border-radius:15px;backdrop-filter:blur(10px);transition:.3s;}
-    .card:hover{transform:translateY(-10px);background:#2563eb;}
-    .card h3{margin-bottom:10px;font-size:18px;}
-    .card p{font-size:14px;line-height:1.5;color:rgba(255,255,255,.85);margin-bottom:14px;}
-    .card-links{display:flex;gap:12px;}
-    .card-links a{color:#38bdf8;text-decoration:none;font-size:13px;font-weight:600;}
-    .card-links a:hover{text-decoration:underline;}
-    .card:hover .card-links a{color:white;}
-    .exp-item{background:rgba(255,255,255,.1);padding:30px;border-radius:15px;backdrop-filter:blur(10px);margin-top:30px;}
-    .exp-header{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:6px;}
-    .exp-role{font-size:18px;font-weight:600;color:#38bdf8;}
-    .exp-meta{font-size:13px;color:rgba(255,255,255,.7);}
-    .exp-company{font-size:14px;color:rgba(255,255,255,.85);margin-bottom:16px;}
-    .exp-company a{color:#38bdf8;text-decoration:none;}
-    .exp-company a:hover{text-decoration:underline;}
-    .exp-item ul{margin-left:18px;}
-    .exp-item li{font-size:14px;line-height:1.6;color:rgba(255,255,255,.85);margin-bottom:8px;}
-    footer{padding:30px;text-align:center;background:#020617;}
-    footer a{color:#38bdf8;text-decoration:none;margin:0 8px;}
-    #contact p{margin-bottom:10px;}
-    #contact a{color:#38bdf8;text-decoration:none;}
-    #contact a:hover{text-decoration:underline;}
+    :root{
+      --bg-1:#020817;
+      --bg-2:#0b1120;
+      --panel:#0f172a;
+      --panel-2:rgba(15, 23, 42, 0.82);
+      --panel-3:rgba(30, 41, 59, 0.9);
+      --line:rgba(148, 163, 184, 0.2);
+      --text:#e2e8f0;
+      --muted:#cbd5e1;
+      --primary:#38bdf8;
+      --primary-2:#60a5fa;
+      --accent:#22d3ee;
+      --success:#34d399;
+      --warning:#fbbf24;
+      --shadow:0 20px 45px rgba(15, 23, 42, 0.45);
+      --radius:20px;
+    }
+
+    *{box-sizing:border-box; margin:0; padding:0; font-family:Poppins,sans-serif;}
+    html{scroll-behavior:smooth;}
+    body{
+      --mx:50%;
+      --my:50%;
+      background:linear-gradient(135deg, var(--bg-1), #111827 28%, #172554 62%, var(--bg-2));
+      background-size:220% 220%;
+      color:var(--text);
+      animation:bgMove 16s ease infinite;
+      overflow-x:hidden;
+      position:relative;
+    }
+
+    @keyframes bgMove{
+      0%{background-position:0% 50%;}
+      50%{background-position:100% 50%;}
+      100%{background-position:0% 50%;}
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background-image:
+        linear-gradient(rgba(148,163,184,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148,163,184,0.08) 1px, transparent 1px);
+      background-size:32px 32px;
+      mask-image:radial-gradient(circle at center, black 35%, transparent 100%);
+      pointer-events:none;
+      z-index:0;
+    }
+
+    .cursor-glow{
+      position:fixed;
+      width:260px;
+      height:260px;
+      left:0;
+      top:0;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(56,189,248,0.28), rgba(34,211,238,0.12) 28%, transparent 68%);
+      filter:blur(12px);
+      transform:translate(-50%, -50%);
+      pointer-events:none;
+      z-index:1;
+      transition:opacity .2s ease;
+      opacity:0.8;
+    }
+
+    .orb{
+      position:fixed;
+      border-radius:50%;
+      filter:blur(10px);
+      opacity:0.45;
+      pointer-events:none;
+      z-index:0;
+      animation:floatOrb 18s ease-in-out infinite alternate;
+    }
+
+    .orb-1{
+      width:280px; height:280px; left:8%; top:16%;
+      background:radial-gradient(circle, rgba(56,189,248,0.35), transparent 65%);
+    }
+
+    .orb-2{
+      width:350px; height:350px; right:8%; top:12%;
+      background:radial-gradient(circle, rgba(34,211,238,0.28), transparent 68%);
+      animation-delay:2s;
+    }
+
+    .orb-3{
+      width:260px; height:260px; left:34%; bottom:6%;
+      background:radial-gradient(circle, rgba(96,165,250,0.24), transparent 68%);
+      animation-delay:5s;
+    }
+
+    @keyframes floatOrb{
+      0%{transform:translate3d(0,0,0) scale(1);} 
+      100%{transform:translate3d(30px,-30px,0) scale(1.12);} 
+    }
+
+    a{color:inherit; text-decoration:none;}
+
+    .container{
+      position:relative;
+      z-index:2;
+      width:min(1200px, calc(100% - 32px));
+      margin:0 auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(16px);
+      background:rgba(2, 8, 23, 0.82);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav-wrap{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:18px 0;
+    }
+
+    .brand{
+      font-size:1.1rem;
+      font-weight:700;
+      color:var(--primary);
+      letter-spacing:0.04em;
+    }
+
+    .nav-links{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      gap:16px;
+      font-size:0.82rem;
+      color:var(--muted);
+    }
+
+    .nav-links a{transition:.25s ease;}
+    .nav-links a:hover{color:var(--primary);}
+
+    .hero{
+      padding:72px 0 40px;
+    }
+
+    .hero-panel{
+      display:grid;
+      grid-template-columns:1.2fr 0.8fr;
+      gap:24px;
+      align-items:stretch;
+    }
+
+    .panel{
+      position:relative;
+      background:linear-gradient(180deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.74));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      isolation:isolate;
+    }
+
+    .panel::after{
+      content:"";
+      position:absolute;
+      inset:-30%;
+      background:radial-gradient(circle at var(--mx) var(--my), rgba(56,189,248,0.22), transparent 24%, transparent 60%);
+      opacity:0;
+      transition:opacity .25s ease;
+      z-index:0;
+      pointer-events:none;
+    }
+
+    .panel:hover::after{
+      opacity:1;
+    }
+
+    .panel, .info-panel, .exp-card, .metric-card, .btn {
+      transform-style:preserve-3d;
+      will-change:transform;
+    }
+
+    .hero-copy{
+      padding:36px 30px;
+      position:relative;
+      background:radial-gradient(circle at top left, rgba(56,189,248,0.14), transparent 35%), linear-gradient(135deg, rgba(15,23,42,0.96), rgba(30,41,59,0.86));
+    }
+
+    .eyebrow{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(56,189,248,0.12);
+      border:1px solid rgba(56,189,248,0.35);
+      color:var(--primary);
+      font-size:0.72rem;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+      margin-bottom:20px;
+    }
+
+    h1{
+      font-size:clamp(2.3rem, 4vw, 4.5rem);
+      line-height:1.05;
+      margin-bottom:16px;
+    }
+
+    .highlight{color:var(--primary);}
+
+    .typing-box{
+      min-height:52px;
+      display:flex;
+      align-items:center;
+      margin:14px 0 18px;
+      font-size:clamp(1rem, 2vw, 1.45rem);
+      color:var(--muted);
+      font-weight:600;
+    }
+
+    .typing-box span{
+      display:inline-block;
+      color:var(--accent);
+      border-right:2px solid var(--accent);
+      padding-right:8px;
+      animation:blink 0.8s infinite;
+    }
+
+    @keyframes blink{50%{border-color:transparent;}}
+
+    .meta-list{
+      margin-top:18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(148, 163, 184, 0.07);
+      border:1px solid rgba(148, 163, 184, 0.18);
+      color:var(--muted);
+      font-size:0.78rem;
+    }
+
+    .metrics-row{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:12px;
+      margin-top:22px;
+    }
+
+    .metric-card{
+      position:relative;
+      padding:14px 12px;
+      border:1px solid rgba(56, 189, 248, 0.2);
+      border-radius:14px;
+      background:rgba(15, 23, 42, 0.7);
+      overflow:hidden;
+      transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+
+    .metric-card::before{
+      content:"";
+      position:absolute;
+      inset:auto 0 0 0;
+      height:2px;
+      background:linear-gradient(90deg, var(--primary), transparent);
+      opacity:0.8;
+    }
+
+    .metric-card:hover{
+      transform:translateY(-4px) scale(1.01);
+      border-color:rgba(56, 189, 248, 0.5);
+      box-shadow:0 10px 25px rgba(56, 189, 248, 0.16);
+    }
+
+    .recruiter-banner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      margin-top:22px;
+      padding:16px 18px;
+      border-radius:16px;
+      background:linear-gradient(135deg, rgba(56,189,248,0.12), rgba(14,116,144,0.08));
+      border:1px solid rgba(56,189,248,0.25);
+    }
+
+    .recruiter-banner .label{
+      color:var(--primary);
+      font-size:0.72rem;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      margin-bottom:6px;
+      display:block;
+    }
+
+    .recruiter-banner strong{
+      font-size:1rem;
+      color:var(--text);
+    }
+
+    .metric-value{
+      font-size:1.4rem;
+      font-weight:700;
+      color:var(--primary);
+      margin-bottom:4px;
+    }
+
+    .metric-label{
+      font-size:0.7rem;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:26px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 20px;
+      border-radius:999px;
+      font-weight:600;
+      transition:.25s ease;
+      border:1px solid transparent;
+    }
+
+    .btn.primary{
+      background:linear-gradient(135deg, var(--primary), var(--primary-2));
+      color:#082f49;
+      box-shadow:0 16px 30px rgba(56, 189, 248, 0.25);
+    }
+
+    .btn.secondary{
+      color:var(--primary);
+      background:rgba(56,189,248,0.08);
+      border-color:rgba(56,189,248,0.4);
+    }
+
+    .btn:hover{transform:translateY(-2px);}
+
+    .profile-card{
+      padding:24px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      background:linear-gradient(180deg, rgba(15, 23, 42, 0.9), rgba(17, 24, 39, 0.82));
+    }
+
+    .profile-badge{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      width:120px;
+      height:120px;
+      margin:0 auto 18px;
+      border-radius:50%;
+      background:linear-gradient(135deg, rgba(56,189,248,0.35), rgba(34,211,238,0.12));
+      border:1px solid rgba(56,189,248,0.35);
+      font-size:2.2rem;
+      font-weight:700;
+      color:var(--primary);
+      box-shadow:0 18px 30px rgba(34, 211, 238, 0.18);
+    }
+
+    .mini-title{
+      text-align:center;
+      font-size:1.3rem;
+      font-weight:700;
+      margin-bottom:6px;
+    }
+
+    .subline{
+      text-align:center;
+      color:var(--muted);
+      font-size:0.9rem;
+      margin-bottom:22px;
+    }
+
+    .contact-stack{
+      display:grid;
+      gap:12px;
+      margin-top:8px;
+    }
+
+    .contact-row{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius:12px;
+      background:rgba(148, 163, 184, 0.04);
+      border:1px solid rgba(148, 163, 184, 0.12);
+      color:var(--muted);
+      font-size:0.82rem;
+    }
+
+    .contact-row strong{color:var(--text);}
+
+    .section{
+      padding:26px 0 12px;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      margin:0 0 18px;
+    }
+
+    .section-head h2{
+      font-size:1.5rem;
+      color:var(--text);
+    }
+
+    .section-head .line{
+      flex:1;
+      height:1px;
+      background:linear-gradient(90deg, rgba(56,189,248,0.7), rgba(148,163,184,0.08));
+    }
+
+    .panel-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:18px;
+    }
+
+    .info-panel{
+      padding:22px 20px;
+      min-height:160px;
+      background:linear-gradient(180deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7));
+      border:1px solid var(--line);
+      border-radius:16px;
+      transition:transform .25s ease, border-color .25s ease, background .25s ease;
+    }
+
+    .info-panel:hover{
+      transform:translateY(-6px);
+      border-color:rgba(56,189,248,0.42);
+      background:linear-gradient(180deg, rgba(29, 78, 216, 0.18), rgba(15, 23, 42, 0.82));
+    }
+
+    .info-panel h3{
+      margin-bottom:12px;
+      color:var(--primary);
+      font-size:1.06rem;
+    }
+
+    .info-panel p,
+    .info-panel li,
+    .info-panel span{
+      color:var(--muted);
+      line-height:1.6;
+      font-size:0.9rem;
+    }
+
+    .summary-panel{
+      padding:22px 20px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,41,59,0.8));
+    }
+
+    .summary-panel p{
+      color:var(--muted);
+      line-height:1.8;
+      font-size:0.96rem;
+    }
+
+    .skill-list,
+    .achievement-list,
+    .cert-list,
+    .edu-list{
+      display:grid;
+      gap:14px;
+      list-style:none;
+    }
+
+    .skill-list li,
+    .achievement-list li,
+    .cert-list li,
+    .edu-list li{
+      padding:14px 16px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      background:rgba(148,163,184,0.04);
+      color:var(--muted);
+    }
+
+    .experience-list{
+      display:grid;
+      gap:20px;
+    }
+
+    .exp-card{
+      padding:22px 20px;
+      border-radius:18px;
+      background:linear-gradient(180deg, rgba(15,23,42,0.9), rgba(15,23,42,0.72));
+      border:1px solid var(--line);
+      position:relative;
+    }
+
+    .exp-card::before{
+      content:"";
+      position:absolute;
+      left:18px;
+      top:12px;
+      bottom:12px;
+      width:2px;
+      background:linear-gradient(180deg, var(--primary), transparent);
+    }
+
+    .exp-heading{
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+      padding-left:24px;
+      margin-bottom:8px;
+    }
+
+    .role{
+      font-size:1.08rem;
+      color:var(--primary);
+      font-weight:700;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:0.8rem;
+      margin-top:2px;
+    }
+
+    .exp-details{
+      padding-left:24px;
+      margin-top:10px;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:0.92rem;
+    }
+
+    .exp-details ul{
+      list-style:disc;
+      margin-left:18px;
+    }
+
+    .footer{
+      padding:30px 0 50px;
+      color:var(--muted);
+      text-align:center;
+    }
+
+    @media (max-width: 900px){
+      .hero-panel{grid-template-columns:1fr;}
+      .nav-wrap{flex-direction:column; align-items:flex-start;}
+      .nav-links{justify-content:flex-start;}
+    }
+
+    @media (max-width: 520px){
+      .hero{padding-top:42px;}
+      .hero-copy, .profile-card{padding:22px 18px;}
+      .actions{flex-direction:column; align-items:stretch;}
+      .btn{width:100%;}
+    }
   </style>
 </head>
 <body>
+  <div class="cursor-glow"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
 
-<header>
-  <h2>Tushar Shirsath | DevOps Portfolio</h2>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#awards">Awards</a>
-    <a href="#education">Education</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<div class="hero">
-  <h1>Hello I'm <span>Tushar Shirsath</span></h1>
-  <div class="typing">
-    <div>
-      <p>CKA Certified DevOps Engineer</p>
-      <p>AWS Cloud Specialist</p>
-      <p>Kubernetes (EKS) & GitOps</p>
-      <p>CI/CD Automation Expert</p>
+  <header>
+    <div class="container nav-wrap">
+      <div class="brand">Tushar Shirsath</div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#education">Education</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-  </div>
-  <div class="hero-buttons">
-    <a class="button outline" href="mailto:tusharsrh13@gmail.com">Contact Me</a>
-  </div>
-  <div class="social-links">
-    <a href="https://linkedin.com/in/tushar-shirsath-devops-engineer" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://github.com/tusharshirsath" target="_blank" rel="noopener">GitHub</a>
-    <a href="mailto:tusharsrh13@gmail.com">Email</a>
-    <a href="Phone:+917767841742">Phone</a>
-  </div>
-</div>
+  </header>
 
-<section id="about">
-  <h2>About Me</h2>
-  <p>
-    DevOps Engineer with 3.5+ years of experience designing, automating, and scaling cloud-native infrastructure.
-    Certified Kubernetes Administrator (CKA) with hands-on expertise in AWS, Kubernetes (EKS), Terraform, and GitOps-driven CI/CD pipelines (GitHub Actions, Jenkins, ArgoCD, Harness).
-    At Vodafone Intelligent Solutions (_VOIS), I manage 200+ production microservices on Kubernetes, focusing on deployment reliability, infrastructure cost optimization, and reducing manual toil through automation.
-    Recognized with the Vodafone Star Award for ownership and performance impact.
-  </p>
-</section>
+  <main class="container">
+    <section class="hero">
+      <div class="hero-panel">
+        <div class="panel hero-copy">
+          <div class="eyebrow">AI-Driven DevOps Engineer</div>
+          <h1>Hello, I'm <span class="highlight">Tushar Shirsath</span></h1>
+          <div class="typing-box">
+            <span>CKA Certified</span> &nbsp; | AWS | Kubernetes | Terraform | CI/CD
+          </div>
+          <div class="meta-list">
+            <span class="chip">AWS</span>
+            <span class="chip">Kubernetes</span>
+            <span class="chip">Terraform</span>
+            <span class="chip">GitOps</span>
+            <span class="chip">Jenkins</span>
+            <span class="chip">GitHub Actions</span>
+          </div>
 
-<section id="experience">
-  <h2>Experience</h2>
+          <div class="metrics-row">
+            <div class="metric-card">
+              <div class="metric-value">200+</div>
+              <div class="metric-label">Microservices</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value">60%</div>
+              <div class="metric-label">Deploy Faster</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value">99.9%</div>
+              <div class="metric-label">Platform Uptime</div>
+            </div>
+          </div>
 
-  <div class="exp-item">
-    <div class="exp-header">
-      <span class="exp-role">Assistant Manager – DevOps Engineer</span>
-      <span class="exp-meta">Mar 2024 – Present &middot; 2 yrs 5 mos</span>
-    </div>
-    <div class="exp-company">
-      <a href="https://www.linkedin.com/company/167822/" target="_blank" rel="noopener">_VOIS</a>
-      &middot; Full-time &middot; 3 yrs 8 mos &middot; Pune District, Maharashtra, India &middot; Hybrid
-    </div>
-    <ul>
-      <li>Lead design and management of Kubernetes (EKS) infrastructure supporting 200+ production microservices, ensuring high availability and scalability.</li>
-      <li>Architect and maintain CI/CD pipelines (GitHub Actions, Jenkins, Harness), reducing deployment time by 40% and enabling faster, more reliable releases.</li>
-      <li>Implement GitOps workflows with ArgoCD to automate application delivery and enforce consistency across environments.</li>
-      <li>Manage infrastructure as code using Terraform, provisioning and scaling AWS resources (EC2, VPC, S3, ELB) to support evolving business needs.</li>
-      <li>Containerize and orchestrate applications with Docker and Helm, standardizing deployment patterns across teams.</li>
-      <li>Set up monitoring and alerting with Grafana, improving observability and reducing mean time to detect (MTTD) for production issues.</li>
-      <li>Migrated legacy workloads to AWS cloud, improving scalability and resilience.</li>
-      <li>Enhanced CI/CD automation, reducing manual interventions by 60%.</li>
-      <li>Mentor junior engineers on Kubernetes best practices and DevOps workflows; conduct peer reviews to maintain coding and infrastructure standards.</li>
-      <li>Recognized with the Vodafone Star Award for contributions to automation and operational excellence.</li>
-    </ul>
-  </div>
+          <div class="recruiter-banner">
+            <div>
+              <span class="label">Hiring Status</span>
+              <strong>Available for DevOps / Cloud Roles</strong>
+            </div>
+            <a class="btn primary" href="mailto:tushirsath13@gmail.com">Hire Me</a>
+          </div>
 
-  <div class="exp-item">
-    <div class="exp-header">
-      <span class="exp-role">Senior Executive – DevOps Engineer</span>
-      <span class="exp-meta">Dec 2022 – Mar 2024 &middot; 1 yr 4 mos</span>
-    </div>
-    <div class="exp-company">
-      <a href="https://www.linkedin.com/company/167822/" target="_blank" rel="noopener">_VOIS</a>
-      &middot; Full-time &middot; Pune District, Maharashtra, India &middot; Hybrid
-    </div>
-    <ul>
-      <li>Built and maintained CI/CD pipelines for 100+ applications using Jenkins and GitHub Actions, streamlining build and release processes.</li>
-      <li>Deployed and managed containerized workloads on Kubernetes, supporting day-to-day cluster administration and troubleshooting.</li>
-      <li>Automated infrastructure provisioning with Terraform, reducing manual setup time and improving environment consistency.</li>
-      <li>Collaborated with cross-functional teams to translate business requirements into scalable, automated infrastructure solutions.</li>
-      <li>Administered Linux-based systems supporting production and staging environments, ensuring uptime and performance.</li>
-      <li>Contributed to early adoption of GitOps practices, laying the groundwork for ArgoCD-based deployment workflows.</li>
-    </ul>
-  </div>
-</section>
+          <div class="actions">
+            <a class="btn primary" href="mailto:tushirsath13@gmail.com">Hire Me</a>
+            <a class="btn secondary" href="#contact">Contact</a>
+          </div>
+        </div>
 
-<section id="skills">
-  <h2>Technical Skills</h2>
-  <div class="cards">
-    <div class="card">AWS</div>
-    <div class="card">Kubernetes (EKS)</div>
-    <div class="card">Docker</div>
-    <div class="card">Terraform</div>
-    <div class="card">Jenkins</div>
-    <div class="card">GitHub Actions</div>
-    <div class="card">ArgoCD</div>
-    <div class="card">Harness</div>
-    <div class="card">Linux</div>
-    <div class="card">Helm</div>
-    <div class="card">Grafana</div>
-  </div>
-</section>
+        <aside class="panel profile-card">
+          <div>
+            <div class="profile-badge">TS</div>
+            <div class="mini-title">Autonomous Ops Agent</div>
+            <div class="subline">AWS | Kubernetes | Terraform | CI/CD | CKA</div>
+          </div>
 
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Amazon EKS Platform</h3>
-      <p>Designed and manage production Kubernetes clusters on AWS EKS hosting 200+ microservices, with Helm-based deployments and Grafana-based observability.</p>
-      <div class="card-links">
-        <a href="https://github.com/tusharshirsath/eks-platform" target="_blank" rel="noopener">GitHub</a>
+          <div class="contact-stack">
+            <div class="contact-row"><strong>Email:</strong> <a href="mailto:tushirsath13@gmail.com">tushirsath13@gmail.com</a></div>
+            <div class="contact-row"><strong>Phone:</strong> <a href="tel:+917767841742">+91 7767841742</a></div>
+            <div class="contact-row"><strong>Location:</strong> Pune, India</div>
+            <div class="contact-row"><strong>Open to:</strong> Relocation</div>
+            <div class="contact-row"><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/tushar-shirsath-devops-engineer" target="_blank" rel="noopener">Profile</a></div>
+            <div class="contact-row"><strong>GitHub:</strong> <a href="https://github.com/tusharshirsath" target="_blank" rel="noopener">Code</a></div>
+            <div class="contact-row"><strong>Portfolio:</strong> <a href="https://tusharshirsath.github.io/my_portfolio/" target="_blank" rel="noopener">Website</a></div>
+          </div>
+        </aside>
       </div>
-    </div>
-    <div class="card">
-      <h3>CI/CD Automation</h3>
-      <p>Built GitOps-driven deployment pipelines using Jenkins, GitHub Actions, and ArgoCD to automate build, test, and release across environments.</p>
-      <div class="card-links">
-        <a href="https://github.com/tusharshirsath/cicd-automation" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </div>
-    <div class="card">
-      <h3>Terraform AWS Infrastructure</h3>
-      <p>Automated provisioning of AWS resources (VPC, EC2, S3, ELB) using reusable Terraform modules to reduce manual setup and enforce consistency.</p>
-      <div class="card-links">
-        <a href="https://github.com/tusharshirsath/terraform-aws" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </div>
-    <div class="card">
-      <h3>CDAC Students Feedback System</h3>
-      <p>Web-based feedback platform with Java/Python backend, MySQL database, responsive UI, Docker containerization, Jenkins CI/CD, and Linux deployment.</p>
-      <div class="card-links">
-        <a href="https://github.com/tusharshirsath/cdac-feedback-system" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </div>
-    <div class="card">
-      <h3>Ask Your Doctor</h3>
-      <p>Healthcare consulting and booking app with REST APIs, MySQL schema, responsive frontend, Docker containerization, and Jenkins CI/CD.</p>
-      <div class="card-links">
-        <a href="https://github.com/tusharshirsath/ask-your-doctor" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </div>
-    <div class="card">
-      <h3>My Portfolio</h3>
-      <p>Cloud-native portfolio site hosted on GitHub Pages, integrated with GitHub Actions CI/CD and Terraform for infrastructure provisioning.</p>
-      <div class="card-links">
-        <a href="https://github.com/tusharshirsath/my_portfolio" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://tusharshirsath.github.io/my_portfolio/" target="_blank" rel="noopener">Live site</a>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section id="awards">
-  <h2>Awards & Achievements</h2>
-  <div class="cards">
-    <div class="card">Vodafone Star Award – Excellence in Automation</div>
-    <div class="card">VOIS Hero of the Week – 3x Recognition</div>
-    <div class="card">Multiple Client Appreciation Awards</div>
-  </div>
-</section>
-
-<section id="education">
-  <h2>Education</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>PG Diploma in Advanced Computing (CDAC)</h3>
-      <p>Linux & System Administration, Networking, Docker/Kubernetes basics, Terraform foundations. Grade: 71.5</p>
-    </div>
-    <div class="card">
-      <h3>Pre-CAT, SunBeam Institute</h3>
-      <p>Linux, Networking, Programming in C/C++/Java/Python, automation scripts. Grade: A+</p>
-    </div>
-    <div class="card">
-      <h3>B.E. – Savitribai Phule Pune University</h3>
-      <p>Engineering fundamentals with focus on software and systems.</p>
-    </div>
-  </div>
-</section>
-
-<section id="certifications">
-  <h2>Certifications</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Certified Kubernetes Administrator (CKA)</h3>
-      <p>The Linux Foundation</p>
-      <div class="card-links">
-        <a href="#" target="_blank" rel="noopener">Show credential</a>
+    <section id="about" class="section">
+      <div class="section-head">
+        <h2>Professional Summary</h2>
+        <div class="line"></div>
       </div>
-    </div>
-    <div class="card">
-      <h3>PG-Diploma in Advanced Computing (PG-DAC)</h3>
-      <p>CDAC &middot; May 2021 &ndash; Aug 2022</p>
-    </div>
-    <div class="card">
-      <h3>Certified SAFe&reg; 6 Practitioner</h3>
-      <p>Scaled Agile, Inc.</p>
-    </div>
-  </div>
-</section>
+      <div class="summary-panel">
+        <p>
+          CKA-certified DevOps Engineer with 4 years of experience in AWS, Kubernetes, Terraform, Docker,
+          Jenkins, GitHub Actions, Argo CD, and GitOps. Deployed and supported 200+ microservices on Amazon EKS using
+          Helm, Blue-Green, and Canary strategies, reducing deployment time by 60% through CI/CD automation. Automated AWS
+          infrastructure provisioning with Terraform (IaC), cutting manual effort by 70%, and achieved 25% cloud cost savings
+          through resource optimization. Improved observability with Prometheus, Grafana, Datadog, and CloudWatch, reducing MTTD by 50%
+          and resolving 150+ P1/P2 production incidents through RCA and SRE practices. Skilled in DevSecOps (SonarQube, HashiCorp Vault,
+          IAM), Linux, Bash, Python, and ITIL-aligned release management, and use AI tools such as GitHub Copilot, Claude Code, and Cursor AI to speed up automation and troubleshooting.
+        </p>
+      </div>
+    </section>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:tusharsrh13@gmail.com">tusharsrh13@gmail.com</a></p>
-  <p>Phone: <a href="tel:+917767841742">+91 7767841742</a></p>
-  <p>LinkedIn: <a href="https://linkedin.com/in/tushar-shirsath-devops-engineer" target="_blank" rel="noopener">linkedin.com/in/tushar-shirsath-devops-engineer</a></p>
-  <p>GitHub: <a href="https://github.com/tusharshirsath" target="_blank" rel="noopener">github.com/tusharshirsath</a></p>
-  <p>Portfolio: <a href="https://tusharshirsath.github.io/my_portfolio/" target="_blank" rel="noopener">tusharshirsath.github.io/my_portfolio/</a></p>
-</section>
+    <section id="skills" class="section">
+      <div class="section-head">
+        <h2>Technical Skills</h2>
+        <div class="line"></div>
+      </div>
+      <div class="panel-grid">
+        <div class="info-panel">
+          <h3>Cloud Platform</h3>
+          <p>AWS (EC2, IAM, VPC, RDS, S3, Route 53, CloudWatch, EKS), Microsoft Azure (Basic)</p>
+        </div>
+        <div class="info-panel">
+          <h3>Container & Orchestration</h3>
+          <p>Docker, Kubernetes, Helm</p>
+        </div>
+        <div class="info-panel">
+          <h3>CI/CD & SCM</h3>
+          <p>Jenkins, GitHub Actions, Harness, GitHub, Bitbucket, GitOps</p>
+        </div>
+        <div class="info-panel">
+          <h3>IaC</h3>
+          <p>Terraform</p>
+        </div>
+        <div class="info-panel">
+          <h3>Monitoring & Observability</h3>
+          <p>Grafana, Datadog, Prometheus, AWS CloudWatch, Log Alerting</p>
+        </div>
+        <div class="info-panel">
+          <h3>DevSecOps & Security</h3>
+          <p>HashiCorp Vault, SonarQube, Burp Suite, Vulnerability Scanning</p>
+        </div>
+        <div class="info-panel">
+          <h3>Scripting & Tools</h3>
+          <p>Bash, Linux, REST API, Postman, JMeter, Python</p>
+        </div>
+        <div class="info-panel">
+          <h3>Repositories & Streaming</h3>
+          <p>Nexus, Kafka</p>
+        </div>
+        <div class="info-panel">
+          <h3>Methodologies</h3>
+          <p>SAFe Agile, ITIL, Change Management, Release Management</p>
+        </div>
+        <div class="info-panel">
+          <h3>AI Tools</h3>
+          <p>GitHub Copilot, Claude Code, Cursor AI, ChatGPT, Prompt Engineering, Generative AI</p>
+        </div>
+      </div>
+    </section>
 
-<footer>
-  <p>&copy; 2026 Tushar Shirsath | DevOps Engineer</p>
-  <p>
-    <a href="https://linkedin.com/in/tushar-shirsath-devops-engineer" target="_blank" rel="noopener">LinkedIn</a> |
-    <a href="https://github.com/tusharshirsath" target="_blank" rel="noopener">GitHub</a> |
-    <a href="mailto:tusharsrh13@gmail.com">Email</a>
-  </p>
-</footer>
+    <section id="experience" class="section">
+      <div class="section-head">
+        <h2>Professional Experience</h2>
+        <div class="line"></div>
+      </div>
+      <div class="experience-list">
+        <article class="exp-card">
+          <div class="exp-heading">
+            <div>
+              <div class="role">DevOps Engineer</div>
+              <div class="meta">Vodafone India Services (VOIS) | Pune, India</div>
+            </div>
+            <div class="meta">Dec 2022 – Present</div>
+          </div>
+          <div class="exp-details">
+            <p><strong>Project:</strong> Vodafone Germany | FusionC Transformation Program</p>
+            <ul>
+              <li>Managed and supported a large-scale telecom OSS/BSS platform running on Amazon EKS, troubleshooting Kubernetes, REST API, and Kafka-based microservices to ensure high availability and platform stability.</li>
+              <li>Designed and automated CI/CD pipelines using Jenkins, GitHub Actions, and Argo CD, enabling zero-downtime Blue-Green and Canary deployments for 200+ microservices and reducing deployment time by 60%.</li>
+              <li>Provisioned and managed AWS infrastructure using Terraform, including EC2, VPC, IAM, S3, and RDS, reducing manual provisioning effort by 70%.</li>
+              <li>Administered Kubernetes clusters by implementing RBAC, HPA, PV/PVC, ConfigMaps, Secrets, Ingress Controllers, and Helm Charts for secure and resilient workloads.</li>
+              <li>Automated operational activities using Bash and Python scripting, streamlining health checks, log analysis, cleanup, and deployment workflows.</li>
+              <li>Implemented GitOps practices with Argo CD to standardize deployments and improve consistency across environments.</li>
+              <li>Built monitoring and observability solutions using Prometheus, Grafana, Datadog, and CloudWatch, reducing MTTD by 50% and improving proactive incident detection.</li>
+              <li>Resolved 150+ P1/P2 production incidents through RCA, SRE-driven troubleshooting, and performance tuning.</li>
+              <li>Integrated DevSecOps controls using SonarQube, HashiCorp Vault, IAM policies, SSL/TLS, and vulnerability scanning tools.</li>
+              <li>Optimized AWS resources through lifecycle policies, tagging, and Cost Explorer analysis to achieve ~25% cost savings.</li>
+              <li>Automated reporting and operational dashboards using APIs, Jenkins, and GitHub Actions, reducing manual reporting efforts by 40%.</li>
+              <li>Leveraged AI tools such as GitHub Copilot, Cursor AI, Claude Code, and prompt engineering to accelerate automation and debugging.</li>
+              <li>Worked in Agile/SAFe environments and followed ITIL-based release, change, and deployment management processes.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
 
+    <section id="certifications" class="section">
+      <div class="section-head">
+        <h2>Certifications</h2>
+        <div class="line"></div>
+      </div>
+      <ul class="cert-list">
+        <li>Centre for Development of Advanced Computing (CDAC) - Certified Software Engineer</li>
+        <li>Certified Kubernetes Administrator (CKA) - Linux Foundation</li>
+        <li>Certified SAFe 6 Practitioner - Scaled Agile</li>
+      </ul>
+    </section>
+
+    <section id="education" class="section">
+      <div class="section-head">
+        <h2>Education</h2>
+        <div class="line"></div>
+      </div>
+      <ul class="edu-list">
+        <li><strong>Post Graduate Diploma in Advanced Computing (PG-DAC)</strong> - Centre for Development of Advanced Computing (C-DAC), Pune, India | 2022</li>
+        <li><strong>Pre-CAT Certification</strong> - Sunbeam Institute of Information Technology, Pune, India | 2021</li>
+        <li><strong>Bachelor of Engineering (BE)</strong> - Savitribai Phule Pune University, Pune, India | 2020</li>
+      </ul>
+    </section>
+
+    <section id="achievements" class="section">
+      <div class="section-head">
+        <h2>Key Achievements</h2>
+        <div class="line"></div>
+      </div>
+      <ul class="achievement-list">
+        <li>Received VOIS Hero of the Week Award (4x) for outstanding performance and operational excellence.</li>
+        <li>Awarded VOIS Star Performer Award (2x) for consistently delivering high-quality results.</li>
+        <li>Earned multiple Client Appreciation Awards for innovation, ownership, and extended production support.</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <div class="line"></div>
+      </div>
+      <div class="panel-grid">
+        <div class="info-panel">
+          <h3>Email</h3>
+          <p><a href="mailto:tushirsath13@gmail.com">tushirsath13@gmail.com</a></p>
+        </div>
+        <div class="info-panel">
+          <h3>Phone</h3>
+          <p><a href="tel:+917767841742">+91 7767841742</a></p>
+        </div>
+        <div class="info-panel">
+          <h3>LinkedIn</h3>
+          <p><a href="https://linkedin.com/in/tushar-shirsath-devops-engineer" target="_blank" rel="noopener">linkedin.com/in/tushar-shirsath-devops-engineer</a></p>
+        </div>
+        <div class="info-panel">
+          <h3>GitHub</h3>
+          <p><a href="https://github.com/tusharshirsath" target="_blank" rel="noopener">github.com/tusharshirsath</a></p>
+        </div>
+        <div class="info-panel">
+          <h3>Portfolio</h3>
+          <p><a href="https://tusharshirsath.github.io/my_portfolio/" target="_blank" rel="noopener">tusharshirsath.github.io/my_portfolio/</a></p>
+        </div>
+        <div class="info-panel">
+          <h3>Location</h3>
+          <p>Pune, India</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© 2026 Tushar Shirsath | DevOps Engineer</div>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const cursorGlow = document.querySelector('.cursor-glow');
+
+    window.addEventListener('pointermove', (event) => {
+      const x = event.clientX;
+      const y = event.clientY;
+
+      root.style.setProperty('--mx', `${x}px`);
+      root.style.setProperty('--my', `${y}px`);
+
+      if (cursorGlow) {
+        cursorGlow.style.left = `${x}px`;
+        cursorGlow.style.top = `${y}px`;
+      }
+    });
+
+    document.querySelectorAll('.panel, .info-panel, .exp-card, .metric-card, .btn, .chip').forEach((el) => {
+      el.addEventListener('pointermove', (event) => {
+        const rect = el.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        const rotateY = ((x / rect.width) - 0.5) * 8;
+        const rotateX = (0.5 - (y / rect.height)) * 8;
+        el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+      });
+
+      el.addEventListener('pointerleave', () => {
+        el.style.transform = '';
+      });
+    });
+  </script>
 </body>
 </html>
